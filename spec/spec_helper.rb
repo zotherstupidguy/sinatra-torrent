@@ -1,9 +1,9 @@
+require 'minitest'
+require 'minitest/spec'
+require 'minitest/autorun'
+require 'minitest/pride'
+require 'logger' 
 require 'sinatra'
 require 'rack/test'
 
-module RSpecMixin
-  include Rack::Test::Methods
-  def app() Sinatra::Application end
-end
-
-RSpec.configure { |c| c.include RSpecMixin }
+$log = Logger.new(STDOUT)

@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gem 'timeout'
+gem 'rugged'
+gem 'sinatra'
+gem 'minitest'
+gem 'logger' 
+gem 'rack' 
+gem 'rack-test'
+gem 'bencode'
+gem 'activerecord'
+gem 'sqlite3'

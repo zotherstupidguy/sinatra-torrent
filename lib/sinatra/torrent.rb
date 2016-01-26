@@ -1,6 +1,6 @@
 require 'timeout'
 require 'sinatra/base'
-require 'sinatra/torrent/helpers'
+require_relative 'torrent/helpers'
 
 # This extension will serve up the contents of the specified folder as web seeded torrents.
 # Both webseed versions are supported (shad0w's and GetRight's) and there is an inbuilt tracker
@@ -28,7 +28,7 @@ module Sinatra
       # Putting the annouce URL of a tracker in here will use that tracker rather than the inbuilt one
       app.set :external_tracker, nil
       # Load up a database adapter if one isn't already loaded
-      require 'sinatra/torrent/activerecord' unless (Sinatra::Torrent.const_defined?('Database') rescue false)
+      require_relative './torrent/activerecord' unless (Sinatra::Torrent.const_defined?('Database') rescue false)
       # Stores the instance of the database used to store tracker info.
       app.set :database_adapter, Sinatra::Torrent::Database.new
       # The comment added into torrents
